@@ -11,7 +11,7 @@ import data_manager as dm
 import analysis.data_analysis as da
 
 # Select scenario
-scenario=1
+scenario=2
 
 # Create figure
 plt.figure(figsize=(7.5,5),dpi=300)
@@ -40,25 +40,25 @@ prf = org_prf
 
 # Plot culture results
 plt.subplot(131)
-plt.plot(x_values,100*mcc,label='Contest-Orientation')
-plt.plot(x_values,100*inc,label='Inclusiveness')
+plt.plot(x_values,mcc,label='Contest-Orientation')
+plt.plot(x_values,inc,label='Inclusiveness')
 plt.xlabel('Turns')
-plt.ylabel('Attribute Prevalence (%)')
-plt.ylim(0, 100)
+plt.ylabel('Attribute Prevalence')
+plt.ylim(0, 1)
 plt.legend(loc='upper center',bbox_to_anchor=(0.5, -0.2),borderaxespad=0.)
 
 # Plot inclusiveness at each level
 plt.subplot(132)
 culture_by_level = dm.mean_culture_level(levels,
                                          culture[:,:,0] + culture[:,:,1])
-plt.plot(x_values,100*culture_by_level[:,0],label='Level 1')
-plt.plot(x_values,100*culture_by_level[:,1],label='Level 2')
-plt.plot(x_values,100*culture_by_level[:,2],label='Level 3')
-plt.plot(x_values,100*culture_by_level[:,3],label='Level 4')
-plt.plot(x_values,100*culture_by_level[:,4],label='Level 5')
+plt.plot(x_values,culture_by_level[:,0],label='Level 1')
+plt.plot(x_values,culture_by_level[:,1],label='Level 2')
+plt.plot(x_values,culture_by_level[:,2],label='Level 3')
+plt.plot(x_values,culture_by_level[:,3],label='Level 4')
+plt.plot(x_values,culture_by_level[:,4],label='Level 5')
 plt.xlabel('Turns')
-plt.ylabel('Contest-Orientation Prevalence (%)')
-plt.ylim(0, 100)
+plt.ylabel('Contest-Orientation Prevalence')
+plt.ylim(0, 1)
 plt.legend(loc='upper center',bbox_to_anchor=(0.5, -0.2),borderaxespad=0.)
 
 # Plot performance results

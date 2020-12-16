@@ -24,7 +24,7 @@ lw = [1,1,1,1,2]
 
 for ii in np.arange(len(mu)):
     a, b = og.beta(mu[ii],phi)
-    label = '%.1f' % mu[ii]
+    label = f'$\mu_c ={mu[ii]:.1f}$'
     ax.plot(x,beta.pdf(x,a,b),label=label,ls=ls[ii],lw=lw[ii])
 ax.legend(loc='best', frameon=False)
 ax.set_xlabel('Dependent Variable (q)')
